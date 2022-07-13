@@ -39,7 +39,9 @@ abstract class Pizza
     // нужны индекс этой пиццы, цена размера и цена каждого соуса
     public function getPizzaIndex()
     {
-        $queryPizzaIndex = "SELECT `index` FROM `pizza_type` WHERE `pizza-input-name` = '$this->typeOfPizza'";
+        $typeOfPizzaVar = mysqli_real_escape_string($this->connect, $this->typeOfPizza);
+
+        $queryPizzaIndex = "SELECT `index` FROM `pizza_type` WHERE `pizza-input-name` = '$typeOfPizzaVar'";
         $pizzaIndexQuery = mysqli_query($this->connect, $queryPizzaIndex);
         //$allPizzaTypes = mysqli_fetch_assoc($allPizzaTypes);
         while ($pizzaIndex = mysqli_fetch_assoc($pizzaIndexQuery)) {
@@ -49,7 +51,9 @@ abstract class Pizza
 
     public function getPizzaSizePrice()
     {
-        $queryPizzaSizePrice = "SELECT `price` FROM `pizza_size` WHERE `size` = '$this->sizeOfPizza'";
+        $sizeOfPizzaVar = mysqli_real_escape_string($this->connect, $this->sizeOfPizza);
+
+        $queryPizzaSizePrice = "SELECT `price` FROM `pizza_size` WHERE `size` = '$sizeOfPizzaVar'";
         $pizzaSizePriceQuery = mysqli_query($this->connect, $queryPizzaSizePrice);
         //$allPizzaTypes = mysqli_fetch_assoc($allPizzaTypes);
         while ($pizzaSizePrice = mysqli_fetch_assoc($pizzaSizePriceQuery)) {
@@ -59,7 +63,8 @@ abstract class Pizza
 
     public function getSaucePrice()
     {
-        $querySaucePrice = "SELECT `price` FROM `pizza_sauce` WHERE `sauce-input-name` = '$this->sauceForPizza'";
+        $sauceForPizzaVar = mysqli_real_escape_string($this->connect, $this->sauceForPizza);
+        $querySaucePrice = "SELECT `price` FROM `pizza_sauce` WHERE `sauce-input-name` = '$sauceForPizzaVar'";
         $saucePriceQuery = mysqli_query($this->connect, $querySaucePrice);
         //$allPizzaTypes = mysqli_fetch_assoc($allPizzaTypes);
         while ($saucePrice = mysqli_fetch_assoc($saucePriceQuery)) {

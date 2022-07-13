@@ -1,5 +1,15 @@
 <?php
 
+
+$data = file_get_contents('https://www.nbrb.by/api/exrates/rates/431');
+$courses = json_decode($data, true);
+// echo '<pre>';
+// print_r($courses);
+// echo '</pre>';
+echo $courses['Cur_OfficialRate'];
+echo '<br>';
+echo floor($courses['Cur_OfficialRate'] * 100) / 100
+// {"Cur_ID":431,"Date":"2022-07-14T00:00:00","Cur_Abbreviation":"USD","Cur_Scale":1,"Cur_Name":"Доллар США","Cur_OfficialRate":2.6017}
 ?>
 
 <!doctype html>
@@ -42,12 +52,12 @@
                 </li>
 
             </ul>
-            <input type="submit">
-        </form>
-    </nav>
+            <input class="submit-button" type="submit" value="Заказать">
 
-    <h2 class="cheque">Стоимость: <span id="cost"></span> BYN</h2>
-    <a href="order/order.php">на страницу order.php</a>
+        </form>
+
+    </nav>
+    <h2 class="cheque">Стоимость: <span id="cost"></span> BYN (<span id="cost-in-USD"></span> USD)</h2>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
         $(function() {
@@ -64,20 +74,6 @@
             );
         });
     </script>
-
-    <!-- <script>
-        $("form").on("submit", function() {
-            $.ajax({
-                url: 'order/order.php',
-                method: 'post',
-                dataType: 'html',
-                data: $(this).serialize(),
-                success: function(data) {
-                    $('#cost').html(data);
-                }
-            });
-        });
-    </script> -->
     <script type="text/javascript">
         $(document).ready(function() {
             $('form').submit(function(e) {
@@ -89,6 +85,7 @@
                     success: function(data) {
                         alert("Заказ посчитан!");
                         $('#cost').text(data);
+                        $('#cost-in-USD').text(data / <?php echo $courses['Cur_OfficialRate'] ?>);
                     }
                 });
             });

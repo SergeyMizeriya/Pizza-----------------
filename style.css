@@ -47,10 +47,10 @@ nav ul.sub li ul.sub {
   left: 160px;
 }
 
-button {
-  margin: 300px 0 0 300px;
+.submit-button {
+  margin: 300px 0 0 0;
 }
 
 .cheque {
-  margin: 50px 0 0 300px;
+  margin: 20px 0 0 300px;
 }
