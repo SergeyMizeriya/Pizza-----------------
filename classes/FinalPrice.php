@@ -6,7 +6,7 @@ class FinalPrice
 
     public function __construct($pizzaPriceIndex, $sizePrice, $sauceArr)
     {
-        $this->price = ($pizzaPriceIndex * $sizePrice) + array_sum($sauceArr);
+        $this->price = ($pizzaPriceIndex * $sizePrice) + $sauceArr;
     }
 
     public function getPrice()

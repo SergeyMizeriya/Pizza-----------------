@@ -7,7 +7,7 @@ require_once('../connect.php');
 require_once('../classes/Pizza.php');
 require_once('../classes/FinalPrice.php');
 
-print_r($_POST);
+// print_r($_POST);
 
 // первый элемент в один массив 
 // второй во второй 
@@ -15,15 +15,17 @@ print_r($_POST);
 
 $pizzaFromOrder = array_shift($_POST);
 $sizeFromOrder = array_shift($_POST);
-$allSaucesFromOrder = $_POST;
+$sauceFromOrder = array_shift($_POST);
 
 
 echo $pizzaFromOrder;
 echo $sizeFromOrder;
-print_r($allSaucesFromOrder);
+print_r($sauceFromOrder);
 
-$newPizza = new AnyPizza($pizzaFromOrder, $sizeFromOrder, $allSaucesFromOrder);
+$newPizza = new AnyPizza($pizzaFromOrder, $sizeFromOrder, $sauceFromOrder);
+$newFinalprice = new FinalPrice($newPizza->getPizzaIndex(), $newPizza->getPizzaSizePrice(), $newPizza->getSaucePrice());
 
+$newFinalprice->getPrice();
 //ДЕЛАЕМ ТУТ ЗАКАЗ С ИСПОЛЬЗОВАНИЕМ КЛАССОВ ИЗ classes
 
 // echo 'страница order.php' . '<br>';
