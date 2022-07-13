@@ -1,15 +1,9 @@
 <?php
 
-
 $data = file_get_contents('https://www.nbrb.by/api/exrates/rates/431');
 $courses = json_decode($data, true);
-// echo '<pre>';
-// print_r($courses);
-// echo '</pre>';
-echo $courses['Cur_OfficialRate'];
-echo '<br>';
-echo floor($courses['Cur_OfficialRate'] * 100) / 100
-// {"Cur_ID":431,"Date":"2022-07-14T00:00:00","Cur_Abbreviation":"USD","Cur_Scale":1,"Cur_Name":"Доллар США","Cur_OfficialRate":2.6017}
+$courses['Cur_OfficialRate'];
+
 ?>
 
 <!doctype html>
@@ -85,7 +79,7 @@ echo floor($courses['Cur_OfficialRate'] * 100) / 100
                     success: function(data) {
                         alert("Заказ посчитан!");
                         $('#cost').text(data);
-                        $('#cost-in-USD').text(data / <?php echo $courses['Cur_OfficialRate'] ?>);
+                        $('#cost-in-USD').text((data / <?php echo $courses['Cur_OfficialRate'] ?>).toFixed(2));
                     }
                 });
             });
