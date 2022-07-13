@@ -7,8 +7,8 @@ $allPizzaSizesQuery = mysqli_query($connect, $queryAllPizzaSizes);
 while ($allPizzaSizes = mysqli_fetch_assoc($allPizzaSizesQuery)) {
 
     echo '<li><a href="#">
-            <label for="' . $allPizzaSizes['id'] . '">' . $allPizzaSizes['size'] . ' см</label>
-                <input type="checkbox" id="' . $allPizzaSizes['id'] . '" name="interest" value="' . $allPizzaSizes['size'] . '">
+            <label for="size' . $allPizzaSizes['id'] . '">' . $allPizzaSizes['size'] . ' см</label>
+                <input type="checkbox" id="size' . $allPizzaSizes['id'] . '" name="interest" value="' . $allPizzaSizes['size'] . '">
                </a>
             </li>';
 }
