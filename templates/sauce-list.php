@@ -8,7 +8,7 @@ while ($allPizzaSauces = mysqli_fetch_assoc($allPizzaSaucesQuery)) {
 
     echo '<li><a href="#">
             <label for="sauce' . $allPizzaSauces['id'] . '">' . $allPizzaSauces['sauce'] . '</label>
-                <input type="checkbox" id="sauce' . $allPizzaSauces['id'] . '" name="interest" value="' . $allPizzaSauces['sauce'] . '">
+                <input type="checkbox" id="sauce' . $allPizzaSauces['id'] . '" name="' . $allPizzaSauces['sauce-input-name'] . '" value="' . $allPizzaSauces['sauce'] . '">
                </a>
             </li>';
 }

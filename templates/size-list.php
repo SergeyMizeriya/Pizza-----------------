@@ -8,7 +8,7 @@ while ($allPizzaSizes = mysqli_fetch_assoc($allPizzaSizesQuery)) {
 
     echo '<li><a href="#">
             <label for="size' . $allPizzaSizes['id'] . '">' . $allPizzaSizes['size'] . ' см</label>
-                <input type="radio" id="size' . $allPizzaSizes['id'] . '" name="interest" value="' . $allPizzaSizes['size'] . '">
+                <input type="radio" id="size' . $allPizzaSizes['id'] . '" name="' . $allPizzaSizes['size-input-value'] . '" value="' . $allPizzaSizes['size'] . '">
                </a>
             </li>';
 }
