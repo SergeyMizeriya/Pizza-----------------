@@ -100,10 +100,12 @@ require('classes/Pizza.php')
                     </ul>
                 </li> -->
             </ul>
+            <input type="submit">
         </form>
     </nav>
-    <button>Заказать</button>
+
     <h2 class="cheque">Стоимость: <span id="cost"></span> BYN</h2>
+    <a href="order/order.php">на страницу order.php</a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
         $(function() {
@@ -120,6 +122,7 @@ require('classes/Pizza.php')
             );
         });
     </script>
+
     <!-- <script>
         $("form").on("submit", function() {
             $.ajax({
