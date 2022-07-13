@@ -1,6 +1,7 @@
 <?
 require_once('./connect.php');
 
+// СОЗДАНИЕ ШАБЛОНА ДЛЯ ВЫВОДА ВЕРСТКИ ВСЕХ ВИДОВ ПИЦЦЫ
 $queryAllPizzaTypes = "SELECT * FROM `pizza_type`";
 $allPizzaTypesQuery = mysqli_query($connect, $queryAllPizzaTypes);
 while ($allPizzaTypes = mysqli_fetch_assoc($allPizzaTypesQuery)) {

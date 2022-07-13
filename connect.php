@@ -1,4 +1,5 @@
 <?
+// СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
 $connect = mysqli_connect('localhost', 'root', '', 'pizza_bd');
 
 if (!$connect) {

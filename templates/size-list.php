@@ -1,6 +1,7 @@
 <?
 require_once('./connect.php');
 
+// СОЗДАНИЕ ШАБЛОНА ДЛЯ ВЫВОДА ВЕРСТКИ ВСЕХ РАЗМЕРОВ ПИЦЦЫ
 $queryAllPizzaSizes = "SELECT * FROM `pizza_size`";
 $allPizzaSizesQuery = mysqli_query($connect, $queryAllPizzaSizes);
 while ($allPizzaSizes = mysqli_fetch_assoc($allPizzaSizesQuery)) {

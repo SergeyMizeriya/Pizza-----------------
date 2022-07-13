@@ -1,6 +1,7 @@
 <?
 require_once('./connect.php');
 
+// СОЗДАНИЕ ШАБЛОНА ДЛЯ ВЫВОДА ВЕРСТКИ ВСЕХ СОУСОВ ДЛЯ ПИЦЦЫ
 $queryAllPizzaSauces = "SELECT * FROM `pizza_sauce`";
 $allPizzaSaucesQuery = mysqli_query($connect, $queryAllPizzaSauces);
 while ($allPizzaSauces = mysqli_fetch_assoc($allPizzaSaucesQuery)) {
