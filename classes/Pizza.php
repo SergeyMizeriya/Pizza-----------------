@@ -4,13 +4,13 @@
 
 abstract class Pizza
 {
-    public $connect;
+    protected $connect;
     protected $typeOfPizza;
     protected $sizeOfPizza;
     protected $sauceForPizza;
-    private $pizzaIndex;
-    private $pizzaSizePrice;
-    private $saucePrice;
+    protected $pizzaIndex;
+    protected $pizzaSizePrice;
+    protected $saucePrice;
 
     public function __construct($name, $size, $sauce)
     {
@@ -37,49 +37,34 @@ abstract class Pizza
 
     //добавить методы которые ищут инфу по ценам
     // нужны индекс этой пиццы, цена размера и цена каждого соуса
-    private function setPizzaIndex()
+    public function getPizzaIndex()
     {
         $queryPizzaIndex = "SELECT `index` FROM `pizza_type` WHERE `pizza-input-name` = '$this->typeOfPizza'";
         $pizzaIndexQuery = mysqli_query($this->connect, $queryPizzaIndex);
         //$allPizzaTypes = mysqli_fetch_assoc($allPizzaTypes);
         while ($pizzaIndex = mysqli_fetch_assoc($pizzaIndexQuery)) {
-            $this->pizzaIndex = $pizzaIndex['index'];
+            return $pizzaIndex['index'];
         }
     }
 
-    private function setPizzaSizePrice()
+    public function getPizzaSizePrice()
     {
-        $queryPizzaSizePrice = "SELECT `price` FROM `pizza_size` WHERE `size-input-value` = '$this->sizeOfPizza'";
+        $queryPizzaSizePrice = "SELECT `price` FROM `pizza_size` WHERE `size` = '$this->sizeOfPizza'";
         $pizzaSizePriceQuery = mysqli_query($this->connect, $queryPizzaSizePrice);
         //$allPizzaTypes = mysqli_fetch_assoc($allPizzaTypes);
         while ($pizzaSizePrice = mysqli_fetch_assoc($pizzaSizePriceQuery)) {
-            $this->pizzaSizePrice = $pizzaSizePrice['price'];
+            return $pizzaSizePrice['price'];
         }
     }
 
-    private function setSaucePrice()
+    public function getSaucePrice()
     {
         $querySaucePrice = "SELECT `price` FROM `pizza_sauce` WHERE `sauce-input-name` = '$this->sauceForPizza'";
         $saucePriceQuery = mysqli_query($this->connect, $querySaucePrice);
         //$allPizzaTypes = mysqli_fetch_assoc($allPizzaTypes);
         while ($saucePrice = mysqli_fetch_assoc($saucePriceQuery)) {
-            $this->saucesPrice = $saucePrice['price'];
+            return $saucePrice['price'];
         }
-    }
-
-    public function getPizzaIndex()
-    {
-        echo $this->pizzaIndex;
-    }
-
-    public function getPizzaSizePrice()
-    {
-        return $this->pizzaSizePrice;
-    }
-
-    public function getSaucePrice()
-    {
-        return $this->saucePrice;
     }
 
     public function test()
@@ -89,10 +74,12 @@ abstract class Pizza
         // echo $this->typeOfPizza;
         // echo $this->sizeOfPizza;
         // echo $this->sauceForPizza;
-        // echo '<br>testtt987';
-        // echo $this->getPizzaIndex();
-        // echo $this->getPizzaSizePrice();
-        // echo $this->getSaucePrice();
+        echo ' | ';
+        echo ' | ';
+        // $this->getPizzaSizePrice();
+        echo ' | ';
+        // $this->getPizzaSizePrice();
+        // $this->getSaucePrice();
         // "SELECT `index` FROM `pizza_type` WHERE `pizza-input-name` = '$this->typeOfPizza'"
         $queryPizzaIndex =
             "SELECT `price` FROM `pizza_size` WHERE `size` = '$this->sizeOfPizza'";
@@ -107,6 +94,3 @@ abstract class Pizza
 class AnyPizza extends Pizza
 {
 }
-
-// $newPizza = new AnyPizza('Name', 'Size', ['1', '2']);
-// $newPizza->getParams();

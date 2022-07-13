@@ -23,14 +23,21 @@ $sauceFromOrder = array_shift($_POST);
 // print_r($sauceFromOrder);
 
 $newPizza = new AnyPizza($pizzaFromOrder, $sizeFromOrder, $sauceFromOrder);
-$newPizza->test();
+// $newPizza->test();
+// echo ' | ';
+// echo $newPizza->getPizzaIndex();
+// echo ' | ';
+// echo $newPizza->getPizzaSizePrice();
+// echo ' | ';
+// echo $newPizza->getSaucePrice();
+// echo ' | ';
 // $newPizza->getPizzaIndex();
 // $newPizza->getPizzaSizePrice();
 // $newPizza->getSaucePrice();
 
 $newFinalPrice = new FinalPrice($newPizza->getPizzaIndex(), $newPizza->getPizzaSizePrice(), $newPizza->getSaucePrice());
 
-// $newFinalPrice->getPrice();
+$newFinalPrice->getPrice();
 //ДЕЛАЕМ ТУТ ЗАКАЗ С ИСПОЛЬЗОВАНИЕМ КЛАССОВ ИЗ classes
 
 // echo 'страница order.php' . '<br>';

@@ -87,7 +87,7 @@
                     url: 'order/order.php',
                     data: $(this).serialize(),
                     success: function(data) {
-                        alert("Прибыли данные: " + data);
+                        alert("Заказ посчитан!");
                         $('#cost').text(data);
                     }
                 });
