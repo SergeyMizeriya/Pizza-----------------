@@ -25,48 +25,45 @@ $courses = json_decode($data, true);
                 <li>
                     <a href="#">Пицца</a>
                     <ul class="sub">
+                        <!-- ПОДКЛЮЧЕНИЕ ШАБЛОНА ВАРИАНТОВ ВЫБОРА ПИЦЦЫ -->
                         <?php require_once('templates/pizza-list.php'); ?>
-
                     </ul>
                 </li>
                 <li>
                     <a href="#">Размер</a>
                     <ul class="sub">
+                        <!-- ПОДКЛЮЧЕНИЕ ШАБЛОНА ВАРИАНТОВ ВЫБОРА РАЗМЕРА ПИЦЦ -->
                         <?php require_once('templates/size-list.php'); ?>
-
                     </ul>
                 </li>
                 <li>
                     <a href="#">Соус</a>
                     <ul class="sub">
+                        <!-- ПОДКЛЮЧЕНИЕ ШАБЛОНА ВАРИАНТОВ ВЫБОРА СОУСОВ -->
                         <?php require_once('templates/sauce-list.php'); ?>
-
                     </ul>
                 </li>
-
             </ul>
             <input class="submit-button" type="submit" value="Заказать">
-
         </form>
-
     </nav>
     <h2 class="cheque">Стоимость: <span id="cost"></span> BYN (<span id="cost-in-USD"></span> USD)</h2>
+    <!-- СКРИПТ ПОДЛКЮЧЕНИЯ JQURY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- СКРИПТ СОЗДАНИЯ ВЫПАДАЮЩЕГО МЕНЮ -->
     <script>
         $(function() {
             $(".main li").hover(
                 function() {
-                    //$('ul.sub', this).slideDown(500);
-                    //$('>ul.sub', this).slideDown(500);
                     $('>ul.sub:not(:animated)', this).slideDown(500);
                 },
                 function() {
-                    //$('ul.sub',this).slideUp(300);
                     $('>ul.sub', this).slideUp(300);
                 }
             );
         });
     </script>
+    <!-- СКРИПТ ОТПРАВКИ ДАННЫХ ФОРМЫ -->
     <script type="text/javascript">
         $(document).ready(function() {
             $('form').submit(function(e) {
@@ -88,7 +85,5 @@ $courses = json_decode($data, true);
 
 </html>
 </body>
-<!-- <script src="script.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 </html>
