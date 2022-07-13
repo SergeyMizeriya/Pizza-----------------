@@ -1,9 +1,8 @@
 <?php
-
+//ПОДЛКЮЧЕНИЕ ДАННЫХ О КУРСЕ ВАЛЮТ
 $data = file_get_contents('https://www.nbrb.by/api/exrates/rates/431');
 $courses = json_decode($data, true);
-$courses['Cur_OfficialRate'];
-
+//$courses['Cur_OfficialRate'];
 ?>
 
 <!doctype html>
