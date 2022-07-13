@@ -1,5 +1,5 @@
 <?php
-require('classes/Pizza.php')
+
 ?>
 
 <!doctype html>

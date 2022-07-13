@@ -3,10 +3,29 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-echo '<pre>' . print_r($_POST) . '</pre>';
-//ДЕЛАЕМ ТУТ ЗАКАЗ С ИСПОЛЬЗОВАНИЕМ КЛАССОВ ИЗ classes
+require_once('../connect.php');
 require_once('../classes/Pizza.php');
 require_once('../classes/FinalPrice.php');
+
+print_r($_POST);
+
+// первый элемент в один массив 
+// второй во второй 
+// остальные перебором 
+
+$pizzaFromOrder = array_shift($_POST);
+$sizeFromOrder = array_shift($_POST);
+$allSaucesFromOrder = $_POST;
+
+
+echo $pizzaFromOrder;
+echo $sizeFromOrder;
+print_r($allSaucesFromOrder);
+
+$newPizza = new AnyPizza($pizzaFromOrder, $sizeFromOrder, $allSaucesFromOrder);
+
+//ДЕЛАЕМ ТУТ ЗАКАЗ С ИСПОЛЬЗОВАНИЕМ КЛАССОВ ИЗ classes
+
 // echo 'страница order.php' . '<br>';
 
 //сюда приходит AJAX запрос с данными формы

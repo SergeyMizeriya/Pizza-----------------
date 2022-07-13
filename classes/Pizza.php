@@ -13,11 +13,19 @@ abstract class Pizza
         $this->sauceForPizza[] = $sauce;
     }
 
-    public function getParams()
+    public function getTypeOfPizza()
     {
-        echo $this->typeOfPizza . '<br>';
-        echo $this->sizeOfPizza . '<br>';
-        echo print_r($this->sauceForPizza) . '<br>';
+        return $this->typeOfPizza;
+    }
+
+    public function getSizeOfPizza()
+    {
+        return $this->sizeOfPizza;
+    }
+
+    public function getSauceForPizza()
+    {
+        return $this->sauceForPizza;
     }
 }
 
@@ -25,5 +33,5 @@ class AnyPizza extends Pizza
 {
 }
 
-$newPizza = new AnyPizza('Name', 'Size', ['1', '2']);
-$newPizza->getParams();
+// $newPizza = new AnyPizza('Name', 'Size', ['1', '2']);
+// $newPizza->getParams();
