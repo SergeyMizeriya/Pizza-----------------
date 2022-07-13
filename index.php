@@ -23,25 +23,7 @@
                     <a href="#">Пицца</a>
                     <ul class="sub">
                         <?php require_once('templates/pizza-list.php'); ?>
-                        <!-- <li><a href="#">
-                                <label for="Пепперони">Пепперони</label>
-                                <input type="checkbox" id="Пепперони" name="interest" value="Пепперони">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <label for="country">Деревенская</label>
-                                <input type="checkbox" id="country" name="interest" value="Деревенская">
-                            </a>
-                        </li>
-                        <li><a href="#">
-                                <label for="hawaii">Гавайская</label>
-                                <input type="checkbox" id="hawaii" name="interest" value="Гавайская">
-                            </a></li>
-                        <li><a href="#">
-                                <label for="mushrooms">Грибная</label>
-                                <input type="checkbox" id="mushrooms" name="interest" value="Грибная">
-                            </a></li> -->
+
                     </ul>
                 </li>
                 <li>
@@ -49,56 +31,16 @@
                     <ul class="sub">
                         <?php require_once('templates/size-list.php'); ?>
 
-                        <!-- <li><a href="#">
-                                <label for="21">21 см</label>
-                                <input type="checkbox" id="21" name="interest" value="21"></a></li>
-                        <li><a href="#">
-                                <label for="26">26 см</label>
-                                <input type="checkbox" id="26" name="interest" value="26"></a></li>
-                        <li><a href="#">
-                                <label for="31">31 см</label>
-                                <input type="checkbox" id="31" name="interest" value="31"></a></li>
-                        <li><a href="#">
-                                <label for="45">45 см</label>
-                                <input type="checkbox" id="45" name="interest" value="45"></a></li> -->
                     </ul>
                 </li>
                 <li>
                     <a href="#">Соус</a>
                     <ul class="sub">
                         <?php require_once('templates/sauce-list.php'); ?>
-                        <!-- <li><a href="#">
-                                <label for="cheese">Сыырный</label>
-                                <input type="checkbox" id="cheese" name="interest" value="Сырный"></a></li>
-                        <li><a href="#">
-                                <label for="sweet-sour">Кисло-сладкий</label>
-                                <input type="checkbox" id="sweet-sour" name="interest" value="Кисло-сладкий"></a>
-                            
-                        </li>
-                        <li><a href="#">
-                                <label for="garlic">Чесночный</label>
-                                <input type="checkbox" id="garlic" name="interest" value="Чесночный"></a></li>
-                        <li><a href="#">
-                                <label for="barbecue">Барбекю</label>
-                                <input type="checkbox" id="barbecue" name="interest" value="Барбекю"></a></li> -->
+
                     </ul>
                 </li>
-                <!-- <li>
-                    <a href="#">D</a>
-                    <ul class="sub">
-                        <li><a href="#">D-1</a></li>
-                        <li><a href="#">D-2</a></li>
-                        <li><a href="#">D-3</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">E</a>
-                    <ul class="sub">
-                        <li><a href="#">E-1</a></li>
-                        <li><a href="#">E-2</a></li>
-                        <li><a href="#">E-3</a></li>
-                    </ul>
-                </li> -->
+
             </ul>
             <input type="submit">
         </form>
