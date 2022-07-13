@@ -120,7 +120,7 @@ require('classes/Pizza.php')
             );
         });
     </script>
-    <script>
+    <!-- <script>
         $("form").on("submit", function() {
             $.ajax({
                 url: 'order/order.php',
@@ -130,6 +130,22 @@ require('classes/Pizza.php')
                 success: function(data) {
                     $('#cost').html(data);
                 }
+            });
+        });
+    </script> -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: 'order/order.php',
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        alert("Прибыли данные: " + data);
+                        $('#cost').text(data);
+                    }
+                });
             });
         });
     </script>
